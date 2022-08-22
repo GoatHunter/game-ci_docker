@@ -23,6 +23,8 @@ RUN for mod in $module; do \
     done \
 	# Set execute permissions for modules
 	&& chmod -R 755 /opt/unity/editors/$version/Editor/Data/PlaybackEngines
+  # Set execute permissions for package manager
+  && chmod -R 755 /opt/unity/Editor/Data/Resources/PackageManager/Editor/
 
 RUN echo "$version-$module" | grep -q -vP '^(2021.2.(?![0-4](?![0-9]))|2021.[3-9]|202[2-9]|20[3-9]).*linux' \
   && exit 0 \
